@@ -1,0 +1,22 @@
+{
+    "name": "wpbigmig",
+    "description": "Framework for migrations",
+    "homepage": "http://kruchkoff.com",
+    "require": {
+        "analog/analog": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "WP_CLI\\BigMig\\": "includes/"
+        },
+        "files": [ "wp-bigmig.php" ]
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Kruchkoff",
+            "email": "ivan@kruchkoff.com",
+            "homepage": "https://10up.com"
+        }
+    ]
+}
