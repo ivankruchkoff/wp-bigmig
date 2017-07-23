@@ -1,0 +1,19 @@
+How to kick off the whole process:
+
+sudo mkdir -p /mnt/tmpfs
+sudo mount -o size=2G -t tmpfs none /mnt/tmpfs
+mkdir -p /mnt/tmpfs/migrate/pending/12345
+cd /mnt/tmpfs/migrate/pending/12345
+tar ztvf /srv/www/wordpress-default/public_html/content.tgz
+cd /mnt/tmpfs/
+dirsplit -m -e1 -s 5M migrate
+ls /mnt/tmpfs/|parallel -j10 'wp bigmig -f /mnt/tmpfs/{}'
+
+You can get a database export and a sample content export of 10,000 posts from:
+https://github.com/ivankruchkoff/wp-bigmig/releases/download/v1.0.0/exports.tgz
+
+Video Overview
+https://www.youtube.com/watch?v=mvRGdL4yyLw
+
+Larger datasets available
+https://webhose.io/datasets
